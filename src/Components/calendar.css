@@ -172,6 +172,7 @@ padding-left:1.3rem ;
   align-items: center;
   row-gap: 2rem;
   padding-top: 5rem;
+  z-index: 100;
   
   
 }
