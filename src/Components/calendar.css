@@ -1,0 +1,350 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+.calendar-app{
+    width: 65%;
+    min-width: 90vmin;
+    aspect-ratio: 3/2;
+    
+    background-color: #1A3636;
+  
+    padding: 3rem;
+    border-radius: 3rem;
+    border: 0.51rem solid #0f1319;
+    display: flex;
+    column-gap: 5rem;
+    position: relative;
+    transform-style: preserve-3d;
+   margin: 1rem auto;
+
+}
+
+.calendar-app::after{
+    content: "";
+    position: absolute;
+    bottom: -12rem;
+    left: 50%;
+    transform: translate(-50%) rotateX(50deg);
+    width: 90%;
+    height: 16rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20rem;
+    filter: blur(4rem);
+}
+
+.calendar{
+    width: 40%;
+}
+
+@media((max-width:768px)){
+    .calendar-app{
+       flex-direction: column;
+       aspect-ratio: 3/2;
+    }
+    .events{
+    box-sizing: content-box;
+    width: 100%;
+ 
+   
+    }
+    .calendar{
+        width: 100%;
+        
+    }
+   
+   
+   
+}
+
+.heading{
+font-family: "bebas neue",sans-serif;
+font-size: clamp(4rem,3.8cqi,7rem);
+color: #fff;
+letter-spacing: 0.3rem;
+padding-left:1.3rem ;
+}
+
+.navigate-date{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    margin: 3.5rem 0;
+   
+}
+
+.navigate-date h2{
+    font-size: clamp(1.5rem,1.5cqi,2.5rem);
+    color: #bbb;
+    padding-left:1.3rem ;
+
+}
+
+.button{
+    display: flex;
+    column-gap: 1rem;
+    margin-left: auto;
+}
+.button i{
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: #2c3542;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c97f1a;
+    font-size: 2rem;
+    cursor: pointer;
+    
+}
+
+
+.weekdays{
+    width: 100%;
+    display: flex;
+    margin: 3rem 0;
+    
+   
+}
+
+.weekdays span{
+    width: calc(100% / 7);
+    font-size: clamp(1rem,0.8cqi,1.3rem);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #78879e;
+    letter-spacing: 0.05rem;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.days{
+    display: flex;
+    flex-wrap: wrap;
+ 
+}
+
+.days span{
+    width: calc(100% / 7);
+    font-size: clamp(1rem,0.8cqi,1.3rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    text-shadow:0 .5rem,1rem,rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    color: #ddd;
+   
+}
+
+.current-date{
+    background-color: #ef9011;
+    border-radius: 50%;
+    box-shadow: 0 0 1.5rem 1rem rgba(239,144,17,.3);
+}
+
+.events{
+    width: 100%;
+    height: 100%;
+    padding: 3rem 0;
+    overflow-y: auto;
+    padding: 0.41rem;
+}
+.events::-webkit-scrollbar{
+    display: none;
+}
+
+
+.event-popup{
+  position: absolute;
+  top: 38%;
+  background-color: #161b22;
+  left: 3rem;
+  width:clamp(25rem, 21cqi, 40rem);
+  aspect-ratio: 10/9;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2rem;
+  padding-top: 5rem;
+  
+  
+}
+
+.event-popup textarea::-webkit-scrollbar{
+    display: none;
+}
+
+.time-input{
+    display: flex;
+    column-gap: 1rem;
+}
+
+.event-popup-time{
+    width: clamp(4rem,4cqi,7rem);
+    background-color: #00a3ff;
+    color: #fff;
+    font-size: clamp(1.5rem,1.5cqi,2.3rem);
+    letter-spacing: 0.28rem;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 1.5rem 1rem rgba(0, 163, 255, 0.2);
+    font-family: "bebas neue",sans-serif;
+    height: 4rem;
+    align-items: center;
+}
+
+.time-input input{
+    background-color: transparent;
+    border: none;
+    border-top: 0.2rem solid #00a3ff;
+    border-bottom: 0.2rem solid #00a3ff;
+    color: #fff;
+    width: clamp(4rem,4cqi,7rem);
+    text-align: center;
+    font-size: clamp(2rem,1cqi,3rem);
+    letter-spacing: 0.13rem;
+    height: 4rem;
+}
+
+.time-input input[type="number"]::-webkit-inner-spin-button,
+.time-input input[type="number"]::-webkit-outer-spin-button{
+    appearance: none;
+}
+
+.event-popup textarea{
+    width: clamp(15rem,15cqi,25rem);
+    aspect-ratio: 5/2;
+    resize: none;
+    background-color: #0f1319;
+    border: none;
+    padding: 1rem;
+    border-radius: .5rem;
+    color: #78879e;
+    transition: border 0.5s;
+}
+
+.event-popup textarea:focus{
+    border: 0.31rem solid #00a3ff;
+}
+
+.event-popup textarea:focus::placeholder{
+    color: transparent;
+}
+
+
+.event-popup-btn{
+    width: clamp(15rem,15cqi,25rem);
+    height: 4rem;
+    background-color: #ef9011;
+    color: #fff;
+    font-family: "bebas neue",sans-serif;
+    font-size: clamp(1.5rem,1cqi,2rem);
+    letter-spacing: 0.5rem;
+    box-shadow: 0 0 1.5rem 1rem rgba(239,144,17,.3);
+    cursor: pointer;
+    border: none;
+}
+
+.event-popup-btn:active{
+    transform: translateY(0.1rem);
+}
+
+.close-event-popup{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: .1rem;
+    font-size: clamp(2rem,2cqi,3rem);
+    box-shadow: 0 0 1.5rem  #ef9011;
+    cursor: pointer;
+    border: none;
+    border-radius: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.event{
+    width: 100%;
+    height: 5rem;
+    background-color: #00a3ff;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    box-sizing: content-box;
+    padding: 0.5rem;
+ 
+   
+      
+}
+
+.event-date-wrapper{
+    /* background-color: wheat; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    width: 35%;
+    border-right: 0.1rem solid rgba(255,255,255,0.5);
+ 
+    
+}
+
+.event-date{
+  
+    color: #ddd;
+    font-size: clamp(1rem,1cqi,1.2rem);
+    align-self: center;
+    /* margin-top: 1rem; */
+}
+
+.event-time{
+    font-size: clamp(1rem,1cqi,1.5rem);
+    line-height: 4rem;
+    color: #fff;
+    font-weight: bold;
+    align-self: center;
+}
+
+
+
+.event-text{
+    font-size: clamp(1.2rem,1cqi,1.5rem);
+    line-height: 1.5rem;
+    color: #fff;
+    width: 75%;
+    padding: 0 3rem 0 1rem;
+    overflow-wrap: break-word;
+}
+
+.event-buttons{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.event-buttons i{
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+#isdone{
+    background-color: green;
+    /* text-decoration: line-through; */
+    filter: blur(0.09rem);
+}
