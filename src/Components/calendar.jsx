@@ -18,6 +18,7 @@ const Calendar = () => {
         "October",
         "November",
         "December"];
+
     const CurrentDate = new Date();
 
     const [currentMonth, setCurrentMonth] = useState(CurrentDate.getMonth());
@@ -32,6 +33,11 @@ const Calendar = () => {
     const [eventTime, setEvnetTime] = useState({ hours: "00", minutes: "00" });
     const [eventText, setEvnetText] = useState("");
     const [editingEvent, setEditinEvent] = useState(null);
+    const [currentTime ,setCurrentTime] = useState(new Date().toLocaleTimeString());
+
+    setInterval(() => {
+        setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
 
 
 
@@ -168,9 +174,20 @@ const Calendar = () => {
 
    let res = handleMouseOver();
 
+   let timeChange = currentTime.toString().split(":");
+   let hours = timeChange[0];
+   let min = timeChange[1];
+   let sec = timeChange[2].toString().split(" ")[0];
+   let format = timeChange[2].toString().split(" ")[1];
+
+   let timeArr = [hours,min,sec,format];
+
     return (
         <div className="calendar-app">
             <div className="calendar">
+                <div className="time">
+                {timeArr.map((time)=><h3>{time}</h3>)}
+                </div>
                 <h1 className="heading">Calendar</h1>
                 <div className="navigate-date">
                     <h2 className="Month">{monthOfYear[currentMonth]}</h2>
